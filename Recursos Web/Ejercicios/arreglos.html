@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayor Valor en una Secuencia</title>
+</head>
+<body>
+    <section id="Mayor">
+        <h2>Mayor Valor en una Secuencia</h2>
+        <p>Ingrese los numeros para encontrar el mayor separados por comas:</p>
+
+        <label>Números:</label>
+        <input type="text" id="ArrayMayor">
+
+        <button onclick="NumeroMayor()">Mostrar Número</button>
+        <br><br><br>
+
+        <label id="ResMayor"></label>
+    </section>
+    <script>
+       function NumeroMayor() {
+            var cadena = document.getElementById("ArrayMayor").value;
+
+            var regex = /\d+/g;
+
+            var Mayor = 0;
+            var esNumero;
+            while (((esNumero = regex.exec(cadena)) !== null)) {
+                var numeroActual = parseInt(esNumero);
+                if (numeroActual > Mayor) {
+                    Mayor = numeroActual;
+                }
+            }
+
+            document.getElementById("ResMayor").innerHTML = "Mayor= " + Mayor;
+        }
+
+    </script>
+</body>
+</html>

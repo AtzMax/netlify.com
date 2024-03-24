@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmo de Selección</title>
+</head>
+<body>
+    <h2>Algoritmo de Selección</h2>
+    <p>Ingrese los elementos del arreglo separados por comas:</p>
+    <input type="text" id="arreglo">
+    <button onclick="ordenarArreglo()">Ordenar</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        function seleccion(D) {
+            var n = D.length;
+
+            for (var i = 0; i < n; i++) {
+                var min = i;
+                for (var j = i + 1; j < n; j++) {
+                    if (D[min] > D[j]) {
+                        min = j;
+                    }
+                }
+                if (min !== i) {
+                    var aux = D[min];
+                    D[min] = D[i];
+                    D[i] = aux;
+                }
+            }
+
+            return D;
+        }
+
+        function ordenarArreglo() {
+            var arregloEntrada = document.getElementById("arreglo").value.trim();
+
+            if (arregloEntrada === "") {
+                alert("Por favor ingrese elementos para ordenar.");
+                return;
+            }
+
+            var elementos = arregloEntrada.split(",").map(Number);
+            var elementosOrdenados = seleccion(elementos);
+
+            document.getElementById("resultado").textContent = "Arreglo ordenado: " + elementosOrdenados.join(", ");
+        }
+    </script>
+</body>
+</html>

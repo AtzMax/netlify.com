@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Multiplicar</title>
+</head>
+<body>
+    <h2>Tabla de Multiplicar</h2>
+    <p>Ingrese un número para mostrar su tabla de multiplicar:</p>
+    <input type="numbers" id="numeroInput">
+    <button onclick="mostrarTablaMultiplicar()">Mostrar Tabla</button>
+
+    <div id="tablaMultiplicar"></div>
+
+    <script>
+        function mostrarTablaMultiplicar() {
+            var numero = document.getElementById("numeroInput").value;
+
+            if (isNaN(numero)) {
+                document.getElementById("tablaMultiplicar").innerText = "Por favor ingrese un número.";
+            } else {
+                var tablaHTML = "<h3>Tabla de Multiplicar del " + numero + "</h3>";
+                tablaHTML += "<table border='1'><tr><th>Número</th><th>Resultado</th></tr>";
+                
+                // Generar la tabla de multiplicar
+                for (var i = 1; i <= 100; i++) {
+                    var resultado = numero * i;
+                    tablaHTML += "<tr><td>" + numero + " x " + i + "</td><td>" + resultado + "</td></tr>";
+                }
+                
+                tablaHTML += "</table>";
+                
+                // Mostrar la tabla de multiplicar en el div
+                document.getElementById("tablaMultiplicar").innerHTML = tablaHTML;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Par o Impar</title>
+</head>
+<body>
+    <h2>Determinar si un número es Par o Impar</h2>
+    <p>Ingrese un número:</p>
+    <input type="numbers" id="numeroInput">
+    <button onclick="prueba()">Calcular</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function prueba() {
+            // Obtener el valor del número ingresado por el usuario
+            var num = document.getElementById("numeroInput").value;
+
+            // Verificar si el número ingresado es válido
+            if (isNaN(num)) {
+                document.getElementById("resultado").innerText = "Por favor ingrese un número válido.";
+            } else {
+                // Verificar si el número es par o impar
+                if (num % 2 === 0) {
+                    document.getElementById("resultado").innerText = "El número es Par.";
+                } else {
+                    document.getElementById("resultado").innerText = "El número es Impar.";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

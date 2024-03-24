@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizar Propiedades de Textos</title>
+</head>
+<body>
+    <center>
+    <h2>Visualizar secuencias de Textos</h2>
+    <p>Ingrese una secuencia de textos:</p>
+    <section id="Texto">
+        <textarea id="textBox" style="resize: none;" rows="10" cols="70"></textarea>
+        <button onclick="NText()">Enviar</button><br>
+
+        <label id="ResText"></labelid>
+    </section>
+
+    <script>
+       function NText() {
+            var txt = document.getElementById("textBox").value;
+            var longitud = txt.length;
+            var nMayusculas = 0;
+            var nMinusculas = 0;
+            var txtMinus= txt.toLowerCase();
+            var txtMayus= txt.toUpperCase();
+
+            for (var i = 0; i < longitud; i++) {
+                var caracter = txt.charAt(i);
+                if (caracter >= 'A' && caracter <= 'Z') {
+                    nMayusculas++;
+                } else if (caracter >= 'a' && caracter <= 'z') {
+                    nMinusculas++;
+                }
+            }
+
+            var res= "Longitud: "+ longitud+"<br>"+"Num. mayusculas: "+ nMayusculas+"<br>"+"Num. minusculas: "+ nMinusculas+"<br><br>"
+            +"Texto en Mayusculas: <br>"+ txtMayus+"<br><br>"+"Texto en Minusculas: <br>"+ txtMinus+"<br>";
+
+            document.getElementById("ResText").innerHTML=res;
+        }
+    </script>
+    </center>
+</body>
+</html>

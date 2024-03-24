@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenamiento con Algoritmo de Burbuja</title>
+</head>
+<body>
+    <h2>Ordenamiento con Algoritmo de Burbuja</h2>
+    <p>Ingrese los elementos del arreglo separados por comas:</p>
+    <input type="text" id="arreglo">
+    <button onclick="ordenamientoBurbuja()">Ordenar</button>
+
+    <script>
+        function ordenamientoBurbuja() {
+            var arregloEntrada = document.getElementById("arreglo").value.trim();
+
+            if (arregloEntrada === "") {
+                alert("Por favor ingrese elementos para ordenar.");
+                return;
+            }
+
+            var elementos = arregloEntrada.split(",").map(Number);
+            var n = elementos.length;
+
+            for (var i = 0; i < n; i++) {
+                for (var j = 0; j < n - i - 1; j++) {
+                    if (elementos[j] > elementos[j + 1]) {
+                        var aux = elementos[j];
+                        elementos[j] = elementos[j + 1];
+                        elementos[j + 1] = aux;
+                    }
+                }
+            }
+
+            document.write("<h3>Arreglo ordenado:</h3>");
+            document.write("<p>" + elementos.join(", ") + "</p>");
+        }
+    </script>
+</body>
+</html>

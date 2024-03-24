@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producto mediante Sumas</title>
+</head>
+<body bgcolor="pink">
+    <h2>Producto Mediante Sumas</h2>
+    <p>Ingrese dos números para calcular su producto:</p>
+    <label for="numero1">Primer número:</label>
+    <input type="number" id="numero1">
+    <br><br>
+    <label for="numero2">Segundo número:</label>
+    <input type="number">
+    <br><br>
+    <button onclick="calcularProducto()">Calcular Producto</button>
+
+    <script>
+        function calcularProducto() {
+            // Obtener los valores de los números ingresados por el usuario
+            var num1 = parseInt(document.getElementById("numero1").value);
+            var num2 = parseInt(document.querySelectorAll('input[type="number"]')[1].value);
+
+            // Verificar si los números ingresados son válidos
+            if (isNaN(num1) || isNaN(num2)) {
+                document.write("Por favor ingrese dos números válidos.");
+            } else {
+                // Calcular el producto mediante sumas
+                var producto = 0;
+                for (var i = 0; i < num2; i++) {
+                    producto += num1;                  
+                }
+                
+                document.write("El producto de " + num1 + " y " + num2 + " es: " + producto);
+            }
+        }
+    </script>
+</body>
+</html>

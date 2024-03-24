@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenamiento por Inserción</title>
+</head>
+<body>
+    <h2>Ordenamiento por Inserción</h2>
+    <p>Ingrese los elementos del arreglo separados por comas:</p>
+    <input type="text" id="arreglo">
+    <button onclick="ordenamientoInsercion()">Ordenar</button>
+
+    <script>
+        function ordenamientoInsercion() {
+            var arregloEntrada = document.getElementById("arreglo").value.trim();
+
+            if (arregloEntrada === "") {
+                alert("Por favor ingrese elementos para ordenar.");
+                return;
+            }
+
+            var elementos = arregloEntrada.split(",").map(Number);
+            var n = elementos.length;
+
+            for (var i = 1; i < n; i++) {
+                var j = i;
+                while (j > 0 && elementos[j] < elementos[j - 1]) {
+                    // Intercambio de elementos
+                    var aux = elementos[j];
+                    elementos[j] = elementos[j - 1];
+                    elementos[j - 1] = aux;
+                    // Decremento de j
+                    j--;
+                }
+            }
+
+            document.write("<h3>Arreglo ordenado:</h3>");
+            document.write("<p>" + elementos.join(", ") + "</p>");
+        }
+    </script>
+</body>
+</html>

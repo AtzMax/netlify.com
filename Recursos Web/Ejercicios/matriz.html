@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suma de Vectores</title>
+</head>
+<body>
+    <h2>Suma de Vectores</h2>
+    <p>Ingrese el tamaño de los vectores A y B:</p>
+    <input type="number" id="tam">
+    <button onclick="crearVectores()">Crear Vectores</button>
+
+    <div id="contenedorVectores" style="display: none;">
+        <h3>Ingrese los elementos del vector A:</h3>
+        <div id="vectorA"></div>
+        <h3>Ingrese los elementos del vector B:</h3>
+        <div id="vectorB"></div>
+        <button onclick="calcularSuma()">Calcular Suma</button>
+    </div>
+
+    <p id="resultado"></p>
+
+    <script>
+        function crearVectores() {
+            var tam = parseInt(document.getElementById("tam").value);
+
+            var contenedorA = document.getElementById("vectorA");
+            var contenedorB = document.getElementById("vectorB");
+
+            contenedorA.innerHTML = "";
+            contenedorB.innerHTML = "";
+
+            for (var i = 0; i < tam ; i++) {
+                contenedorA.innerHTML += '<input type="number" id="elementoA' + i + '"> ';
+                contenedorB.innerHTML += '<input type="number" id="elementoB' + i + '"> ';
+            }
+
+            document.getElementById("contenedorVectores").style.display = "block";
+        }
+
+        function calcularSuma() {
+            var tam = parseInt(document.getElementById("tam").value);
+
+            var vectorA = [];
+            var vectorB = [];
+
+            for (var i = 0; i < tam; i++) {
+                var elementoA = parseFloat(document.getElementById("elementoA" + i).value);
+                var elementoB = parseFloat(document.getElementById("elementoB" + i).value);
+
+                vectorA.push(elementoA);
+                vectorB.push(elementoB);
+            }
+
+            var vectorC = [];
+
+            for (var j = 0; j < tam; j++) {
+                vectorC.push(vectorA[j] + vectorB[j]);
+            }
+
+            document.getElementById("resultado").textContent = "El arreglo C, resultado de la suma de los vectores A y B, es:" + vectorC.join(", ");
+        }
+    </script>
+</body>
+</html>

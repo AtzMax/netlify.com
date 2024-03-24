@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar Números en Orden</title>
+</head>
+<body>
+    <section id="Orden">
+        <h2>Mostrar Números en Orden</h2>
+        <p>Ingrese la secuencia de números separados por comas:</p>
+        <label>Números:</label>
+        <input type="text" id="ArrayOrden">
+
+        <button onclick="ordenar()">Mostrar Números</button>
+        <br> <br><br>
+        <label id="ResOrden"></label>
+    </section>
+
+    <script>
+         function ordenar() {
+            var cadena = document.getElementById("ArrayOrden").value;
+            var num = [];
+
+            var regex = /\d+/g;
+
+            var esNumero;
+            while (((esNumero = regex.exec(cadena)) !== null)) {
+                var numeroActual = parseInt(esNumero);
+                num.push(numeroActual);
+            }
+
+            num.sort();
+            var res = "";
+
+            for (var i = 0; i < num.length; i++) {
+                res += num[i] + ", ";
+            }
+
+            document.getElementById("ResOrden").innerHTML = res;
+        }
+    </script>
+</body>
+</html>

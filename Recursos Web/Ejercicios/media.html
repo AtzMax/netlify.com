@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media de una Secuencia de Números</title>
+</head>
+<body>
+    <h2>Media de una Secuencia de Números</h2>
+    <p>Ingrese la secuencia de números separados por comas:</p>
+    <input type="text" id="secuencia">
+    <button onclick="calcularMedia()">Calcular Media</button>
+
+    <script>
+        function calcularMedia() {
+            var secuencia = document.getElementById("secuencia").value.trim();
+
+            if (secuencia === "") {
+                document.write("Por favor ingrese una secuencia de números.");
+                return;
+            }
+
+            var numeros = secuencia.split(",").map(Number);
+            var suma = 0;
+//formula media:( x1+x2+x3+xN...)/N
+            for (var i = 0; i < numeros.length; i++) {
+                suma += numeros[i];
+            }
+
+            var media = suma / numeros.length;
+            document.write("La media de la secuencia de números es: " + media.toFixed(2));
+        }
+    </script>
+</body>
+</html>
